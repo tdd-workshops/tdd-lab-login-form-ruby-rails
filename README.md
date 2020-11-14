@@ -44,6 +44,18 @@ Open this folder in your terminal app. And run these commands in the terminal. T
     bundle exec rspec
     ```
 
+4. To run the linter:
+
+    ```
+    bundle exec rubocop
+    ```
+
+5. To fix linting issues:
+
+    ```
+    bundle exec rubocop -A
+    ```
+
 ## Architecture
 
 To be updated

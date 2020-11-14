@@ -1,13 +1,9 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
-  def create
+  def create; end
 
-  end
+  def welcome; end
 
-  def welcome
-
-  end
-
-  def logout
-
-  end
+  def logout; end
 end
