@@ -7,5 +7,5 @@ tasks:
     init: bundle install && yarn install --check-files && bundle exec rails db:migrate db:seed
     command: bundle exec rails server
   - name: Test
-    init: bundle install && sleep 3 && RAILS_ENV=test bundle exec rails db:migrate
+    init: bundle install && yarn install --check-files && RAILS_ENV=test bundle exec rails db:migrate
     command: bundle exec rspec
