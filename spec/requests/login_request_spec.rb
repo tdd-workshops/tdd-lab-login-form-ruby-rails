@@ -7,6 +7,7 @@ RSpec.describe 'Logins', type: :request do
     it 'returns http success' do
       get '/'
       expect(response).to have_http_status(:success)
+      expect(response.body).to include("Welcome to the Login Form Demo")
     end
   end
 end
