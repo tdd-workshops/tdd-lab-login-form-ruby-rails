@@ -1,0 +1,11 @@
+ports:
+  - port: 3000
+    onOpen: open-preview
+
+tasks:
+  - name: Rails Server
+    init: bundle install && yarn install --check-files && bundle exec rails db:migrate
+    command: rails server
+  - name: Test
+    init: bundle install && RAILS_ENV=test bundle exec rails db:migrate
+    command: bundle exec rspec
