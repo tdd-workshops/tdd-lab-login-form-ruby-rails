@@ -28,6 +28,7 @@ Open this folder in your terminal app. And run these commands in the terminal. T
 
     ```
     bundle install
+    yarn install
     ```
 
 2. Start the app:
@@ -35,9 +36,9 @@ Open this folder in your terminal app. And run these commands in the terminal. T
     ```
     bundle exec rails server
     ```
-    
+
     You can open this url in your browser to view the app: <http://localhost:3000>
-    
+
 3. To run the test:
 
     ```
