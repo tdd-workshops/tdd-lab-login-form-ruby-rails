@@ -16,7 +16,7 @@ RSpec.describe 'Users', type: :request do
       expect(response).to redirect_to(welcome_users_path)
       follow_redirect!
 
-      expect(response.body).to include("Welcome back, demo_user")
+      expect(response.body).to include('Welcome back, demo_user')
     end
   end
 end

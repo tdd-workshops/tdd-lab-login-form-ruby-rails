@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validate :matching_password_confirmation, on: :signup
 
-  validates_presence_of :password, on: :create
+  validates :password, presence: { on: :create }
 
   def self.signup(new_user)
     new_user.valid?(:signup)
@@ -19,8 +19,8 @@ class User < ApplicationRecord
   private
 
   def matching_password_confirmation
-    if password_confirm && password != password_confirm
-      errors.add(:base, :mismatch_password, message: 'Passwords do not match')
-    end
+    return unless password_confirm && password != password_confirm
+
+    errors.add(:base, :mismatch_password, message: 'Passwords do not match')
   end
 end

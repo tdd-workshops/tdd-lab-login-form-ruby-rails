@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SignupController < ApplicationController
   def index
     redirect_to welcome_users_path if session[:username]

@@ -64,6 +64,6 @@ Rails.application.configure do
 
   if ENV['GITPOD_WORKSPACE_URL']
     url = `gp url`
-    config.hosts << "3000-"+url[8,url.length].chomp
+    config.hosts << "3000-#{url[8, url.length].chomp}"
   end
 end
