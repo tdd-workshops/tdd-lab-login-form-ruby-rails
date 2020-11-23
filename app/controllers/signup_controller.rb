@@ -1,5 +1,7 @@
 class SignupController < ApplicationController
-  def index; end
+  def index
+    redirect_to welcome_users_path if session[:username]
+  end
 
   def create
     if signup_params[:password] != params[:password_confirm]
