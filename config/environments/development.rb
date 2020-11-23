@@ -62,6 +62,8 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  url = `gp url`
-  config.hosts << "3000-"+url[8,url.length].chomp
+  if ENV['GITPOD_WORKSPACE_URL']
+    url = `gp url`
+    config.hosts << "3000-"+url[8,url.length].chomp
+  end
 end
