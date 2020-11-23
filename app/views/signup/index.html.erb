@@ -1,0 +1,30 @@
+<div class="col-sm-12 col-md-6 offset-md-3">
+  <h2>Signup for an account</h2>
+
+  <%= render partial: 'shared/alerts' %>
+
+  <div class="card">
+    <div class="card-body">
+      <%= form_with url: signup_index_path, method: 'post', local: true do |f| %>
+        <div class="form-group">
+          <label for="inputUsername">Username</label>
+          <input class="form-control" id="inputUsername" type="text" name="username" />
+        </div>
+        <div class="form-group">
+          <label for="inputPassword">Password</label>
+          <input class="form-control" id="inputPassword" type="password" name="password" />
+        </div>
+        <div class="form-group">
+          <label for="inputPassword2">Confirm Password</label>
+          <input class="form-control" id="inputPassword2" type="password" name="password_confirm" />
+        </div>
+        <div class="form-group">
+          <label for="inputEmail">Email address</label>
+          <input class="form-control" id="inputEmail" type="email" aria-describedby="emailHelp" name="user[email]" />
+          <small class="form-text text-muted" id="emailHelp">We'll never share your email with anyone else.</small>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+      <% end %>
+    </div>
+  </div>
+</div>
