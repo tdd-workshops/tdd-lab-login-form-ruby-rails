@@ -5,7 +5,9 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   context 'validations' do
     it { should validate_presence_of(:username) }
+    it { should validate_uniqueness_of(:username) }
     it { should validate_presence_of(:email) }
+    it { should validate_uniqueness_of(:email) }
     it { should validate_presence_of(:password).on(:create) }
   end
 
@@ -41,7 +43,7 @@ RSpec.describe User, type: :model do
       it 'invalidates' do
         User.signup(subject)
         expect(subject.errors).to_not be_empty
-        expect(subject.errors.full_messages_for(:username)).to include('Username is currently in use by another user')
+        expect(subject.errors.full_messages_for(:username)).to include('Username has already been taken')
       end
     end
 
@@ -53,7 +55,7 @@ RSpec.describe User, type: :model do
       it 'invalidates' do
         User.signup(subject)
         expect(subject.errors).to_not be_empty
-        expect(subject.errors.full_messages_for(:email)).to include('Email is currently in use by another user')
+        expect(subject.errors.full_messages_for(:email)).to include('Email has already been taken')
       end
     end
   end
