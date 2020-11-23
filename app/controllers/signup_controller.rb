@@ -1,25 +1,27 @@
 class SignupController < ApplicationController
   def index
     redirect_to welcome_users_path if session[:username]
+    @user = User.new
   end
 
   def create
-    if signup_params[:password] != params[:password_confirm]
-      error = 'Passwords do not patch'
+    @user = User.new(signup_params)
+
+    if @user.password != params[:password_confirm]
+      @user.errors.add(:base, :mismatch_password, message: 'Passwords do not match')
     elsif User.where(email: signup_params[:email]).count > 0
-      error = 'Email address currently in use'
+      @user.errors.add(:email, :invalid, message: 'is currently in use by another user')
     else
-      @user = User.create(signup_params)
-      error = @user.errors.full_messages.join('. ') unless @user.errors.empty?
+      @user.save
     end
 
-    if error
-      flash[:error] = error
-      redirect_to signup_index_path
-    else
+    if @user.errors.empty?
       session[:username] = @user.username
       flash[:notice] = 'Thank you for signing up!'
       redirect_to welcome_users_path
+    else
+      flash.now[:error] = @user.errors.full_messages.join('. ')
+      render 'signup/index'
     end
   end
 
