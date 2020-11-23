@@ -9,12 +9,13 @@ The product owner is very happy with the application, but would like some enhanc
 ### User Story
 
 > As a **User**, <br>
-**When** I login with password which is too short.<br>
+**When** I signup with password which is too short.<br>
 **Then** I should see an alert telling me my password is too short.
 
 Acceptance Criteria:
 
 - Error alert should be visible when the password is too short.
+- Password must be at least 12 characters in length.
 - This should be a server-side implementation.
 - There should be additional automated test coverage.
 
