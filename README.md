@@ -67,7 +67,15 @@ To be updated
 
     This is the home page. The login form is also here.
 
-2. `POST /users`
+2. `GET /signup`
+
+    This is the registration form.
+
+3. `POST /signup`
+
+    Sign up for new user account.
+
+3. `POST /users`
 
     This is how you login to the app. You will need to login with `email` and `password`.
 
